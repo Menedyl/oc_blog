@@ -1,0 +1,23 @@
+{
+  "name": "vendor_name/package_name",
+  "description": "Projet 'blog'",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Menedyl",
+      "email": "nicolas.bostjancic@gmail.com"
+    }
+  ],
+  "require": {
+    "twig/twig": "~2.0",
+    "symfony/http-foundation": "^3.3",
+    "symfony/routing": "^3.3",
+    "symfony/http-kernel": "^3.3"
+  },
+  "autoload": {
+    "psr-4": {
+      "": "src/"
+    }
+  }
+}
