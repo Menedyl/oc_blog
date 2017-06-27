@@ -21,7 +21,9 @@ class AppController
 
     }
 
-
+    /*
+     * @Route("/home", name="home")
+     */
     public function homeAction(Request $request)
     {
         $this->extractAttr($request);
