@@ -8,24 +8,35 @@ use Symfony\Component\HttpFoundation\Response;
 class AppController
 {
     protected $filesystem;
+    protected $requestAttr = array();
 
 
     public function __construct()
     {
         $this->environment = new \Twig_Environment(
-            new \Twig_Loader_Filesystem(__DIR__ . '/../Ressources/views'),
+            new \Twig_Loader_Filesystem(__DIR__ . '/../../../app/Ressources/views'),
             [
                 'cache' => false, // __DIR__ . '/../var'
             ]);
 
     }
 
+
     public function homeAction(Request $request)
     {
+        $this->extractAttr($request);
 
-        extract($request->attributes->all(), EXTR_SKIP);
+        return new Response($this->environment->render($this->requestAttr['_route'] . '.twig', array('name' => $this->requestAttr['name'])));
+    }
 
-        return new Response($this->environment->render($_route . '.twig', array('name' => $name)));
+
+    protected function extractAttr(Request $request)
+    {
+
+        foreach ($request->attributes->all() as $key => $value) {
+            $this->requestAttr[$key] = $value;
+        }
+
     }
 
 
