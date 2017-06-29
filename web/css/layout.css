@@ -40,7 +40,7 @@
 }
 
 #layout_menu > ul {
-    padding: none;
+    padding: 0;
     border: solid black 1px;
     text-align: center;
 }

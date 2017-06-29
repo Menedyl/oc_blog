@@ -1,0 +1,28 @@
+{% extends 'layout.twig' %}
+
+{% block stylesheet %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ css('post') }}">
+{% endblock %}
+
+
+{% block body %}
+
+    {{ css('post') }}
+
+    <h3>Nom du post</h3>
+
+    <img src="#">
+
+    <p>{{ id }}</p>
+
+
+    <p>Description du post</p>
+
+    <p>Nom de l'auteur</p>
+
+    <p>Date de modif</p>
+
+    <button type="button">Modifier</button>
+
+{% endblock %}
