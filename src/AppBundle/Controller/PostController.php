@@ -3,7 +3,7 @@
 namespace AppBundle\Controller;
 
 
-use Symfony\Component\HttpFoundation\Request;
+use AppBundle\Repository\PostRepository;
 use Symfony\Component\HttpFoundation\Response;
 
 class PostController extends AppController
@@ -15,10 +15,14 @@ class PostController extends AppController
 
     }
 
-    public function postAction(Request $request, $id)
+    public function postAction($id)
     {
 
-        return new Response($this->twig->render('Post/post.twig', array('id' => $id)));
+        /** @var PostRepository $var */
+        $post = $this->em->getEntityManager()->getRepository("AppBundle\Entity\Post")->find($id);
+
+        return new Response($this->twig->render('Post/post.twig', array('post' => $post)));
     }
+
 
 }

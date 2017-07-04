@@ -5,9 +5,8 @@ use Symfony\Component\Routing\RouteCollection;
 
 $routes = new RouteCollection();
 
-$routes->add('home', new Route('/home/{name}',
+$routes->add('home', new Route('/home',
     array(
-        'name' => 'Menedyl !',
         '_controller' => 'AppBundle\Controller\AppController::homeAction'
     )));
 

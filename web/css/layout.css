@@ -1,3 +1,7 @@
+body{
+    padding-bottom: 5em;
+}
+
 #layout_title {
     font-weight: bold;
     text-align: center;
@@ -60,5 +64,4 @@
 #layout_menu > ul > li > a:hover {
     text-decoration: none;
     color: #606060;
-
 }

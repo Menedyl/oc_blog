@@ -1,0 +1,26 @@
+#post_title {
+    text-align: center;
+    border-top: solid black 1px;
+    padding-top: 0.5em;
+    margin-top: 1em;
+    font-weight: bold;
+    font-size: x-large;
+}
+
+#post_content{
+    margin-bottom: 2em;
+}
+
+#post_author {
+    font-weight: bold;
+}
+
+#post_dateUpdate {
+    font-style: italic;
+    font-size: x-small;
+}
+
+#post_btn_update{
+    font-size: large;
+}
+

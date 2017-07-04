@@ -21,27 +21,37 @@
 
     <div class="row">
 
-        <div id="layout_description" class="col-sm-2">
-
+        <div id="layout_description" class="col-md-2">
             {% include "description.twig" %}
         </div>
 
-        <div class="col-sm-10">
+        <div class="col-md-10">
 
-            <h1 id="layout_title">DEVELOPPEUR D'APPLICATION</h1>
-
-            <div id="layout_menu" class="col-sm-push-3 col-sm-6">
-                {% include "menu.twig" %}
+            <div class="row">
+                <h1 id="layout_title">DEVELOPPEUR D'APPLICATION</h1>
             </div>
 
-            <div id="layout_body" class="col-sm-10">
-                {% block body %}
-                {% endblock %}
+            <div class="row">
+
+                <div id="layout_menu" class="col-md-push-3 col-md-6">
+                    {% include "menu.twig" %}
+                </div>
+
             </div>
+
+            <div class="row">
+
+                <div id="layout_body" class="col-md-10">
+                    {% block body %}
+                    {% endblock %}
+                </div>
+
+            </div>
+
 
         </div>
-    </div>
 
+    </div>
 
 </div>
 </body>

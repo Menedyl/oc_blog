@@ -9,14 +9,13 @@ use Symfony\Component\Yaml\Yaml;
 class ManagerEntity
 {
 
-    protected $entityManager;
-    private $isDevMode;
+    private $entityManager;
     private $config;
     private $connect;
 
     public function __construct()
     {
-        $this->config = Setup::createAnnotationMetadataConfiguration(array(__DIR__ . '/../AppBundle/', $this->isDevMode));
+        $this->config = Setup::createAnnotationMetadataConfiguration(array(__DIR__ . '/../AppBundle', false));
         $this->connect = Yaml::parse(file_get_contents(__DIR__ . '/../../app/config/config.yml'));
 
 
