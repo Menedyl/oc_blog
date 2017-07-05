@@ -2,6 +2,8 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\Collection;
+use Doctrine\ORM\Mapping as ORM;
 
 
 /**
@@ -56,6 +58,20 @@ class Post
      * @Column(name="date_update", type="datetime", nullable=true)
      */
     private $dateUpdate;
+
+    /**
+     * @var string $url
+     *
+     * @Column(name="url", type="string")
+     */
+    private $url;
+
+    /**
+     * @var Collection $images
+     *
+     * @OneToMany(targetEntity="Image", mappedBy="post", cascade={"persist", "remove"})
+     */
+    private $images;
 
 
     public function __construct()
@@ -144,8 +160,45 @@ class Post
         return $this->dateUpdate;
     }
 
+    /**
+     * @return Collection
+     */
+    public function getImages(): Collection
+    {
+        return $this->images;
+    }
 
+    /**
+     * @param Image $images
+     */
+    public function addImages(Image $images)
+    {
+        $this->addImages($images);
+    }
 
+    /**
+     * @param Image $image
+     */
+    public function removeImage(Image $image)
+    {
+        $this->removeImage($image);
+    }
+
+    /**
+     * @return string
+     */
+    public function getUrl(): string
+    {
+        return $this->url;
+    }
+
+    /**
+     * @param string $url
+     */
+    public function setUrl(string $url)
+    {
+        $this->url = $url;
+    }
 
 
 }

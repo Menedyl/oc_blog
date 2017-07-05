@@ -16,20 +16,18 @@ class Twig
         $this->loader = new Twig_Loader_Filesystem(__DIR__ . '/../../app/Ressources/views/');
         $this->environement = new Twig_Environment($this->loader);
 
-        $this->addFunction();
-
-
-        /*  $this->twig->addFunction(new \Twig_SimpleFunction('css', function (){
-              return 'http://localhost/oc_blog/web/css/layout.css';
-          }));
-        */
+        $this->addFunctions();
 
     }
 
-    private function addFunction()
+    private function addFunctions()
     {
         $this->environement->addFunction(new \Twig_SimpleFunction('css', function ($path) {
             return '/oc_blog/web/css/' . $path . '.css';
+        }));
+
+        $this->environement->addFunction(new \Twig_SimpleFunction('img', function ($path) {
+            return '/oc_blog/web/img/' . $path;
         }));
     }
 

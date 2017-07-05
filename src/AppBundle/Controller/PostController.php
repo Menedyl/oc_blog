@@ -18,8 +18,11 @@ class PostController extends AppController
     public function postAction($id)
     {
 
-        /** @var PostRepository $var */
-        $post = $this->em->getEntityManager()->getRepository("AppBundle\Entity\Post")->find($id);
+        /** @var PostRepository $repo */
+        $repo = $this->em->getEntityManager()->getRepository("AppBundle\Entity\Post");
+
+        $post = $repo->findWithImage($id);
+
 
         return new Response($this->twig->render('Post/post.twig', array('post' => $post)));
     }
