@@ -5,15 +5,19 @@ use Symfony\Component\Routing\RouteCollection;
 
 $routes = new RouteCollection();
 
-$routes->add('home', new Route('/home/{name}',
+$routes->add('home', new Route('/home',
     array(
-        'name' => 'Menedyl !',
         '_controller' => 'AppBundle\Controller\AppController::homeAction'
     )));
 
-$routes->add('blog_list', new Route('/blog_list',
+$routes->add('post_list', new Route('/post_list',
     array(
-        '_controller' => 'AppBundle\Controller\BlogController::listAction'
+        '_controller' => 'AppBundle\Controller\PostController::listAction'
+    )));
+
+$routes->add('post', new Route('/post/{id}',
+    array(
+        '_controller' => 'AppBundle\Controller\PostController::postAction'
     )));
 
 return $routes;
