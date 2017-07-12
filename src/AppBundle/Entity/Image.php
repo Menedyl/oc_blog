@@ -2,6 +2,8 @@
 
 namespace AppBundle\Entity;
 
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+
 
 /**
  * Class Image
@@ -37,14 +39,39 @@ class Image
     /**
      * @var Post $post
      *
-     * @ManyToOne(targetEntity="Post", inversedBy="images" ,cascade={"persist", "remove"})
+     * @ManyToOne(targetEntity="Post", inversedBy="images")
      */
     private $post;
+
+    /** @var UploadedFile $file */
+    private $file;
 
 
     public function __construct()
     {
     }
+
+
+    public function upload()
+    {
+        $name = $this->file->getClientOriginalName();
+
+        $this->file->move($this->getUploadRootDir(), $name);
+
+        $this->url = $name;
+        $this->alt = $name;
+    }
+
+    public function getUploadRootDir()
+    {
+        return __DIR__ . '/../../../web/' . $this->getUploadDir();
+    }
+
+    public function getUploadDir()
+    {
+        return 'img/uploads';
+    }
+
 
     /**
      * @return int
@@ -84,6 +111,38 @@ class Image
     public function setAlt(string $alt)
     {
         $this->alt = $alt;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFile()
+    {
+        return $this->file;
+    }
+
+    /**
+     * @param mixed $file
+     */
+    public function setFile(UploadedFile $file)
+    {
+        $this->file = $file;
+    }
+
+    /**
+     * @return Post
+     */
+    public function getPost()
+    {
+        return $this->post;
+    }
+
+    /**
+     * @param Post $post
+     */
+    public function setPost(Post $post)
+    {
+        $this->post = $post;
     }
 
 

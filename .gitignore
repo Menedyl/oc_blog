@@ -4,3 +4,4 @@
 /vendor/
 /var/
 app/config/parameters.yml
+/web/img/uploads/

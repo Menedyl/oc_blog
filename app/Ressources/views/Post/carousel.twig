@@ -22,7 +22,7 @@
             {% for image in post.images %}
 
                 {% if loop.index == 1 %}
-                    <img src="{{ img(image.url) }}" alt="{{ image.alt }}">
+                    <img src="{{ img('uploads/' ~ image.url) }}" alt="{{ image.alt }}">
                 {% endif %}
 
             {% endfor %}
@@ -33,7 +33,7 @@
             {% if loop.index > 1 %}
 
                 <div class="item">
-                    <img src="{{ img(image.url) }}" alt="{{ image.alt }}">
+                    <img src="{{ img('uploads/' ~ image.url) }}" alt="{{ image.alt }}">
                 </div>
 
             {% endif %}

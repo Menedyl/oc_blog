@@ -2,6 +2,7 @@
 
 namespace AppBundle;
 
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Controller\ArgumentResolver;
 use Symfony\Component\HttpKernel\Controller\ControllerResolver;
@@ -33,7 +34,7 @@ class AppBundle
 
         $arguments = $this->argumentsResolver->getArguments($request, $controller);
 
-        return call_user_func_array($controller, $arguments);
+        return new Response(call_user_func_array($controller, $arguments));
 
         /*
         try {
