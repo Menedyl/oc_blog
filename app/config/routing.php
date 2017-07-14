@@ -25,4 +25,9 @@ $routes->add('post_add', new Route('/post_add',
         '_controller' => 'AppBundle\Controller\PostController::addAction'
     )));
 
+$routes->add('post_edit', new Route('/post_edit/{id}',
+    array(
+        '_controller' => 'AppBundle\Controller\PostController::editAction'
+    )));
+
 return $routes;

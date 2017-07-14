@@ -40,7 +40,6 @@ class PostController extends AppController
             $post = $formPost->getData();
 
 
-
             foreach ($post->getImages() as $image) {
 
                 /** @var Image $image */
@@ -56,6 +55,49 @@ class PostController extends AppController
 
 
         return $this->twig->render('Post/add.twig', array('formPost' => $formPost->createView()));
+
+    }
+
+    public function editAction(Request $request, $id)
+    {
+        /** @var PostRepository $repo */
+        $repo = $this->em->getEntityManager()->getRepository("AppBundle\Entity\Post");
+
+        /** @var Post $post */
+        $post = $repo->findWithImage($id);
+
+        /** @var Form $formPost */
+        $formPost = $this->createForm(PostType::class, $post);
+
+
+        $formPost->handleRequest($request);
+
+
+        if ($formPost->isSubmitted() && $formPost->isValid()) {
+
+            $post = $formPost->getData();
+
+
+
+            $post->setDateUpdate(new \DateTime());
+
+            foreach ($post->getImages() as $image) {
+
+                $image->upload();
+            }
+
+
+            $this->em->getEntityManager()->persist($post);
+            $this->em->getEntityManager()->flush();
+
+
+            return $this->postAction($post->getId());
+
+        }
+
+
+        return $this->twig->render('Post/edit.twig', array('formPost' => $formPost->createView()));
+
 
     }
 

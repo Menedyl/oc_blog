@@ -41,6 +41,7 @@ class PostType extends AbstractType
                 )
             ))
             ->add('url', UrlType::class, array(
+                'required' => false,
                 'constraints' => array(
                     new NotBlank(),
                     new Url(array(
