@@ -1,12 +1,8 @@
-body{
-    padding-bottom: 5em;
-}
+
 
 #layout_title {
     font-weight: bold;
     text-align: center;
-    border-top: solid black 1px;
-    padding-top: 0.5em;
 }
 
 #layout_description {
@@ -39,8 +35,8 @@ body{
 
 #layout_menu {
     border-top: solid black 1px;
-    margin-top: 2em;
-    padding-top: 1.8em;
+    margin-top: 1em;
+    padding-top: 2em;
 }
 
 #layout_menu > ul {

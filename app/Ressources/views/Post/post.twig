@@ -11,16 +11,14 @@
 
     <div class="row">
 
-        <div class="col-md-push-4 col-md-6">
             <h3 id="post_title">{{ post.title }}</h3>
-        </div>
 
     </div>
 
 
     <div class="row">
 
-        <div class="col-md-push-2 col-md-10">
+        <div class="col-md-offset-2 col-md-8">
             {% include 'Post/carousel.twig' %}
         </div>
 
@@ -28,7 +26,7 @@
 
     <div class="row">
 
-        <div class="col-md-push-1 col-md-12">
+        <div id="post_description" class="col-md-offset-1 col-md-10">
 
             <div class="row">
 
@@ -49,7 +47,7 @@
                     <p id="post_dateUpdate">Mis à jour le : {{ post.dateUpdate|date('d/m/Y à H:i') }}</p>
                 </div>
 
-                <div class="col-md-push-7 col-md-1">
+                <div class="col-md-offset-7 col-md-1">
                     <a id="post_btn_update" href="{{ path('post_edit', {'id' : post.id} ) }}" type="button" class="btn btn-primary">Modifier</a>
                 </div>
 

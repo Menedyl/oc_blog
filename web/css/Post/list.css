@@ -1,0 +1,31 @@
+.post_list_post {
+    text-align: center;
+    margin-top: 1.2em;
+}
+
+.post_list_link {
+    color: black;
+}
+
+.post_list_link:hover {
+    text-decoration: none;
+    color: #606060;
+}
+
+.post_list_image {
+    width: 55%;
+}
+
+.post_list_title {
+    font-weight: bold;
+}
+
+.post_list_update {
+    font-size: xx-small;
+    font-style: italic;
+    font-weight: bold;
+}
+
+#post_list_pagination{
+    text-align: center;
+}
