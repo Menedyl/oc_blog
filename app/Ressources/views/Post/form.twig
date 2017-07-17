@@ -1,0 +1,74 @@
+{% extends 'layout.twig' %}
+
+{% block stylesheet %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ css('Post/add') }}">
+{% endblock %}
+
+{% block body %}
+
+    <div id="post_form_add">
+
+        <div class="row">
+
+            <fieldset>
+
+                {% block legend %}
+                {% endblock %}
+
+                {{ form_start(formPost) }}
+
+                <div class="col-md-6">
+
+                    <div class="form-group">
+                        {{ form_label(formPost.title, 'Titre du post :',{'label_attr' : {'class' : 'control-label'}}) }}
+                        {{ form_errors(formPost.title) }}
+                        {{ form_widget(formPost.title, {'attr' : {'class' : 'form-control'}}) }}
+                    </div>
+
+
+                    <div class="form-group">
+                        {{ form_label(formPost.url, 'Url du post :',{'label_attr' : {'class' : 'control-label'}}) }}
+                        {{ form_errors(formPost.url) }}
+                        {{ form_widget(formPost.url, {'attr' : {'class' : 'form-control'}}) }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ form_label(formPost.content, 'Contenue du post :',{'label_attr' : {'class' : 'control-label'}}) }}
+                        {{ form_errors(formPost.content) }}
+                        {{ form_widget(formPost.content, {'attr' : {'class' : 'form-control'}}) }}
+                    </div>
+
+                </div>
+
+                <div class="col-md-6">
+
+                    <div class="form-group">
+
+                        {{ form_row(formPost.images) }}
+
+                        <a href="#" id="add_image" class="btn btn-primary">Ajouter une image</a>
+                    </div>
+
+                    {{ form_rest(formPost) }}
+
+                </div>
+
+                <button id="post_form_btn" type="submit" class="btn btn-primary">Valider</button>
+
+                {{ form_end(formPost) }}
+
+            </fieldset>
+
+        </div>
+
+    </div>
+
+{% endblock %}
+
+
+{% block scripts %}
+
+    <script src="{{ js('post_add') }}" rel="stylesheet"></script>
+
+{% endblock %}

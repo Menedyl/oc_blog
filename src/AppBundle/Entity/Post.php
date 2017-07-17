@@ -4,6 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\ORM\Mapping as ORM;
 
 
 /**
@@ -70,6 +71,7 @@ class Post
      * @var Collection $images
      *
      * @OneToMany(targetEntity="Image", mappedBy="post", cascade={"persist", "remove"})
+     * @JoinColumn(nullable=false)
      */
     private $images;
 
@@ -160,6 +162,14 @@ class Post
     public function getDateUpdate()
     {
         return $this->dateUpdate;
+    }
+
+    /**
+     * @param \DateTime $dateUpdate
+     */
+    public function setDateUpdate(\DateTime $dateUpdate)
+    {
+        $this->dateUpdate = $dateUpdate;
     }
 
     /**
