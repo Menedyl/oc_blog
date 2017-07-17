@@ -10,10 +10,10 @@ class PostRepository extends EntityRepository
     public function findWithImage($id)
     {
         return $this->createQueryBuilder('p')
-            ->where('p.id = :id')
-            ->setParameter('id', $id)
             ->innerJoin('p.images', 'images')
             ->addSelect('images')
+            ->where('p.id = :id')
+            ->setParameter('id', $id)
             ->getQuery()
             ->getOneOrNullResult();
 

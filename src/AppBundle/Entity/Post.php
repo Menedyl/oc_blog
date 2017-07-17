@@ -2,8 +2,8 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use Doctrine\ORM\Mapping as ORM;
 
 
 /**
@@ -62,7 +62,7 @@ class Post
     /**
      * @var string $url
      *
-     * @Column(name="url", type="string")
+     * @Column(name="url", type="string", length=255)
      */
     private $url;
 
@@ -77,6 +77,8 @@ class Post
     public function __construct()
     {
         $this->dateCreate = new \DateTime();
+        $this->author = 'Nicolas Bostjancic';
+        $this->images = new ArrayCollection();
     }
 
     /**
@@ -163,17 +165,19 @@ class Post
     /**
      * @return Collection
      */
-    public function getImages(): Collection
+    public function getImages()
     {
         return $this->images;
     }
 
     /**
-     * @param Image $images
+     * @param Image $image
      */
-    public function addImages(Image $images)
+    public function addImage(Image $image)
     {
-        $this->addImages($images);
+        $this->images->add($image);
+
+        $image->setPost($this);
     }
 
     /**
@@ -181,13 +185,13 @@ class Post
      */
     public function removeImage(Image $image)
     {
-        $this->removeImage($image);
+        $this->images->remove($image);
     }
 
     /**
      * @return string
      */
-    public function getUrl(): string
+    public function getUrl()
     {
         return $this->url;
     }

@@ -20,4 +20,9 @@ $routes->add('post', new Route('/post/{id}',
         '_controller' => 'AppBundle\Controller\PostController::postAction'
     )));
 
+$routes->add('post_add', new Route('/post_add',
+    array(
+        '_controller' => 'AppBundle\Controller\PostController::addAction'
+    )));
+
 return $routes;
