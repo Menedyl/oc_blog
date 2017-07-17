@@ -20,40 +20,42 @@
 <div class="container-fluid">
 
     <div class="row">
+        <div id="body" class="col-md-12">
 
-        <div id="layout_description" class="col-md-2">
-            {% include "description.twig" %}
-        </div>
-
-        <div class="col-md-10">
-
-            <div class="row">
-                <h1 id="layout_title">DEVELOPPEUR D'APPLICATION</h1>
+            <div id="layout_description" class="col-md-2">
+                {% include "description.twig" %}
             </div>
 
-            <div class="row">
+            <div class="col-md-10">
 
-                <div id="layout_menu" class="col-md-push-3 col-md-6">
-                    {% include "menu.twig" %}
+                <div class="row">
+                    <h1 id="layout_title">DEVELOPPEUR D'APPLICATION</h1>
                 </div>
 
-            </div>
+                <div class="row">
 
-            <div class="row">
+                    <div id="layout_menu" class="col-md-push-3 col-md-6">
+                        {% include "menu.twig" %}
+                    </div>
 
-                <div id="layout_body" class="col-md-10">
-                    {% block body %}
-                    {% endblock %}
-
-                    {% block scripts %}
-                    {% endblock %}
                 </div>
 
+                <div class="row">
+
+                    <div class="col-md-12">
+                        {% block body %}
+                        {% endblock %}
+
+                        {% block scripts %}
+                        {% endblock %}
+                    </div>
+
+                </div>
+
+
             </div>
 
-
         </div>
-
     </div>
 
 </div>

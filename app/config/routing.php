@@ -10,9 +10,11 @@ $routes->add('home', new Route('/home',
         '_controller' => 'AppBundle\Controller\AppController::homeAction'
     )));
 
-$routes->add('post_list', new Route('/post_list',
+$routes->add('post_list', new Route('/post_list/{page}',
     array(
-        '_controller' => 'AppBundle\Controller\PostController::listAction'
+        '_controller' => 'AppBundle\Controller\PostController::listAction',
+        'page' => 1
+
     )));
 
 $routes->add('post', new Route('/post/{id}',

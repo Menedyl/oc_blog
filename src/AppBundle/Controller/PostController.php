@@ -9,15 +9,35 @@ use AppBundle\Form\Type\PostType;
 use AppBundle\Repository\PostRepository;
 use Symfony\Component\Form\Form;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class PostController extends AppController
 {
 
+    const NB_POST_PER_PAGE = 4;
 
-    public function listAction()
+
+    public function listAction($page)
     {
 
-        return $this->twig->render('post_list.twig');
+
+
+        /** @var PostRepository $repo */
+        $repo = $this->em->getEntityManager()->getRepository('AppBundle\Entity\Post');
+
+        $postList = $repo->findAllWithImage($page, self::NB_POST_PER_PAGE);
+
+        $nbPages = ceil(count($postList) / self::NB_POST_PER_PAGE);
+
+        if ($page > $nbPages){
+            throw new NotFoundHttpException("La page demandé n'existe pas");
+        }
+
+        return $this->twig->render('Post/list.twig', array(
+            'postList' => $postList,
+            'nbPages' => $nbPages,
+            'page' => $page
+        ));
 
     }
 
@@ -50,13 +70,11 @@ class PostController extends AppController
             $this->em->getEntityManager()->flush();
 
             return $this->twig->render('Post/add.twig', array('formPost' => $formPost->createView()));
-
         }
 
-
         return $this->twig->render('Post/add.twig', array('formPost' => $formPost->createView()));
-
     }
+
 
     public function editAction(Request $request, $id)
     {
@@ -76,7 +94,6 @@ class PostController extends AppController
         if ($formPost->isSubmitted() && $formPost->isValid()) {
 
             $post = $formPost->getData();
-
 
 
             $post->setDateUpdate(new \DateTime());
