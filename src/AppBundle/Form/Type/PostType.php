@@ -22,7 +22,9 @@ class PostType extends AbstractType
         $builder
             ->add('title', TextType::class, array(
                 'constraints' => array(
-                    new NotBlank(),
+                    new NotBlank(array(
+                        'message' => 'Ce champ ne peut être vide.'
+                    )),
                     new Length(array(
                         'min' => 6,
                         'minMessage' => 'Au moins 6 caractères',
@@ -33,7 +35,9 @@ class PostType extends AbstractType
             ))
             ->add('content', TextareaType::class, array(
                 'constraints' => array(
-                    new NotBlank(),
+                    new NotBlank(array(
+                        'message' => 'Ce champ ne peut être vide.'
+                    )),
                     new Length(array(
                         'min' => 100,
                         'minMessage' => 'Au moins 100 caractères'
@@ -43,7 +47,9 @@ class PostType extends AbstractType
             ->add('url', UrlType::class, array(
                 'required' => false,
                 'constraints' => array(
-                    new NotBlank(),
+                    new NotBlank(array(
+                        'message' => 'Ce champ ne peut être vide.'
+                    )),
                     new Url(array(
                         'message' => "Ce champs doit contenir l'adresse d'un site valide",
                         'checkDNS' => true,

@@ -3,5 +3,5 @@
 /composer.phar
 /vendor/
 /var/
-app/config/parameters.yml
+app/config/config.yml
 /web/img/uploads/

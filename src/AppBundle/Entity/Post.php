@@ -195,7 +195,8 @@ class Post
      */
     public function removeImage(Image $image)
     {
-        $this->images->remove($image);
+
+        $this->images->removeElement($image);
     }
 
     /**

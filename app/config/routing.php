@@ -14,7 +14,6 @@ $routes->add('post_list', new Route('/post_list/{page}',
     array(
         '_controller' => 'AppBundle\Controller\PostController::listAction',
         'page' => 1
-
     )));
 
 $routes->add('post', new Route('/post/{id}',

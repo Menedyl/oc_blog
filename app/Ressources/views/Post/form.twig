@@ -2,7 +2,7 @@
 
 {% block stylesheet %}
     {{ parent() }}
-    <link rel="stylesheet" href="{{ css('Post/add') }}">
+    <link rel="stylesheet" href="{{ css('Post/form') }}">
 {% endblock %}
 
 {% block body %}
@@ -70,6 +70,6 @@
 
 {% block scripts %}
 
-    <script src="{{ js('post_add') }}" rel="stylesheet"></script>
+    <script src="{{ js('Post/form') }}" rel="stylesheet"></script>
 
 {% endblock %}

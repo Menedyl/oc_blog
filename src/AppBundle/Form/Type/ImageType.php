@@ -19,7 +19,9 @@ class ImageType extends AbstractType
             ->add('file', FileType::class, array(
                 'label' => false,
                 'constraints' => array(
-                    new NotBlank()
+                    new NotBlank(array(
+                        'message' => 'Au moin une image doit être présente.'
+                    ))
                 )
             ));
     }

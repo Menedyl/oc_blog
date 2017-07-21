@@ -2,15 +2,11 @@
 
 namespace AppBundle;
 
-use Symfony\Component\Asset\Package;
-use Symfony\Bridge\Twig\Extension\AssetExtension;
 use Symfony\Bridge\Twig\Extension\FormExtension;
 use Symfony\Bridge\Twig\Extension\RoutingExtension;
 use Symfony\Bridge\Twig\Extension\TranslationExtension;
 use Symfony\Bridge\Twig\Form\TwigRenderer;
 use Symfony\Bridge\Twig\Form\TwigRendererEngine;
-use Symfony\Component\Asset\Packages;
-use Symfony\Component\Asset\VersionStrategy\EmptyVersionStrategy;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Generator\UrlGenerator;
 use Symfony\Component\Routing\RequestContext;
@@ -52,13 +48,20 @@ class Twig
             return '/oc_blog/web/js/' . $path . '.js';
         }));
 
+        $this->environement->addFunction(new \Twig_SimpleFunction('file', function ($path) {
+            return '/oc_blog/web/file/' . $path;
+        }));
+
+
     }
 
     private function addExtensions()
     {
         $routes = include __DIR__ . '/../../app/config/routing.php';
+
         $context = new RequestContext();
         $context->fromRequest(Request::createFromGlobals());
+
         $this->environement->addExtension(new RoutingExtension(new UrlGenerator($routes, $context)));
 
         $this->environement->addExtension(new FormExtension());
