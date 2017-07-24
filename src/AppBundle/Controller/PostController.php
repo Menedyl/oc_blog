@@ -110,7 +110,10 @@ class PostController extends AppController
 
         }
 
-        return $this->twig->render('Post/edit.twig', array('formPost' => $formPost->createView()));
+        return $this->twig->render('Post/edit.twig', array(
+            'formPost' => $formPost->createView(),
+            'post' => $post
+        ));
 
     }
 

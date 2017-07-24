@@ -34,7 +34,7 @@
                     </div>
 
                     <div class="form-group">
-                        {{ form_label(formPost.content, 'Contenue du post :',{'label_attr' : {'class' : 'control-label'}}) }}
+                        {{ form_label(formPost.content, 'Contenu du post :',{'label_attr' : {'class' : 'control-label'}}) }}
                         {{ form_errors(formPost.content) }}
                         {{ form_widget(formPost.content, {'attr' : {'class' : 'form-control'}}) }}
                     </div>
@@ -64,6 +64,9 @@
         </div>
 
     </div>
+
+    {% block images %}
+    {% endblock %}
 
 {% endblock %}
 

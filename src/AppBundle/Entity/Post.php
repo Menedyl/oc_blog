@@ -79,6 +79,7 @@ class Post
     public function __construct()
     {
         $this->dateCreate = new \DateTime();
+        $this->dateUpdate = new \DateTime();
         $this->author = 'Nicolas Bostjancic';
         $this->images = new ArrayCollection();
     }

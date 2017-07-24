@@ -31,4 +31,9 @@ $routes->add('post_edit', new Route('/post_edit/{id}',
         '_controller' => 'AppBundle\Controller\PostController::editAction'
     )));
 
+$routes->add('mentions', new Route('/mentions_legales',
+    array(
+        '_controller' => 'AppBundle\Controller\AppController::mentionsAction'
+    )));
+
 return $routes;

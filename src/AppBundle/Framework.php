@@ -8,7 +8,7 @@ use Symfony\Component\HttpKernel\Controller\ArgumentResolver;
 use Symfony\Component\HttpKernel\Controller\ControllerResolver;
 use Symfony\Component\Routing\Matcher\UrlMatcher;
 
-class AppBundle
+class Framework
 {
 
     protected $matcher;
@@ -30,9 +30,8 @@ class AppBundle
         $request->attributes->add($this->matcher->match($request->getPathInfo()));
 
         $controller = $this->controllerResolver->getController($request);
-
-
         $arguments = $this->argumentsResolver->getArguments($request, $controller);
+
 
         return new Response(call_user_func_array($controller, $arguments));
 

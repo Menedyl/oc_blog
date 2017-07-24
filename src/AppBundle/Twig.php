@@ -52,7 +52,6 @@ class Twig
             return '/oc_blog/web/file/' . $path;
         }));
 
-
     }
 
     private function addExtensions()

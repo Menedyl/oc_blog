@@ -76,3 +76,8 @@ body {
     float: inherit;
     margin-top: 1em;
 }
+
+#layout_mentionslegales{
+    text-align: center;
+    padding: 2em;
+}

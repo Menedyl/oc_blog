@@ -14,7 +14,6 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Routing\Generator\UrlGenerator;
-use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Routing\RequestContext;
 use Symfony\Component\Security\Csrf\CsrfTokenManager;
 use Symfony\Component\Security\Csrf\TokenGenerator\UriSafeTokenGenerator;
@@ -105,6 +104,10 @@ class AppController
         return $formFactory->create($type, $data);
     }
 
+    public function mentionsAction()
+    {
+        return $this->twig->render('mentions.twig');
+    }
 
     protected function redirectToRoute(Request $request, $route, $parameters = array(), $status = 302)
     {
@@ -114,9 +117,9 @@ class AppController
         $context->fromRequest($request);
 
         $urlGenerator = new UrlGenerator($routes, $context);
-        $url = $urlGenerator->generate($route, $parameters, UrlGeneratorInterface::ABSOLUTE_URL);
+        $url = $urlGenerator->generate($route, $parameters);
 
-        return new RedirectResponse($url, $status);
+        return new RedirectResponse($url);
     }
 
 
