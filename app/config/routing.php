@@ -14,7 +14,6 @@ $routes->add('post_list', new Route('/post_list/{page}',
     array(
         '_controller' => 'AppBundle\Controller\PostController::listAction',
         'page' => 1
-
     )));
 
 $routes->add('post', new Route('/post/{id}',
@@ -30,6 +29,11 @@ $routes->add('post_add', new Route('/post_add',
 $routes->add('post_edit', new Route('/post_edit/{id}',
     array(
         '_controller' => 'AppBundle\Controller\PostController::editAction'
+    )));
+
+$routes->add('mentions', new Route('/mentions_legales',
+    array(
+        '_controller' => 'AppBundle\Controller\AppController::mentionsAction'
     )));
 
 return $routes;

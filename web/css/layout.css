@@ -1,3 +1,13 @@
+body {
+    background: fixed;
+
+    background-image:
+    linear-gradient(0deg, rgba(255, 255, 255, 0.83), rgba(255, 255, 255, 0.83)),
+    url("../img/css/image-jv2.jpg");
+
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
 
 
 #layout_title {
@@ -48,8 +58,7 @@
 #layout_menu > ul > li {
     display: inline-block;
     float: none;
-    margin: 1em;
-    font-weight: bold;
+    margin: 0.8em;
     font-size: large;
 }
 
@@ -60,4 +69,15 @@
 #layout_menu > ul > li > a:hover {
     text-decoration: none;
     color: #606060;
+}
+
+#layout_alert {
+    text-align: center;
+    float: inherit;
+    margin-top: 1em;
+}
+
+#layout_mentionslegales{
+    text-align: center;
+    padding: 2em;
 }

@@ -2,10 +2,70 @@
 
 {% block stylesheet %}
     {{ parent() }}
+    <link rel="stylesheet" href="{{ css('home') }}">
 {% endblock %}
 
 
 {% block body %}
+
+    <div class="row">
+        <div id="home_catch_phrase">
+            <h3>Vous cherchez un développeur Web ?</h3>
+            <h3>Vous êtes sur la bonne adresse !</h3>
+        </div>
+    </div>
+
+    <div class="row">
+        <div id="home_intro" class="col-md-7">
+            <p>
+                Développeur Junior issu d'une formation professionnelle, je maîtrise différents languages de
+                développement pour créer le site web qu'il vous faut.
+            </p>
+            <p>
+                Vous trouverez dans la liste des posts, différents site webs créé en partant de zéro. Du simple site dit
+                "vitrine" au site comportant une base de données.
+            </p>
+            <p>Intéressé ?</p>
+            <p>N'hésitez pas à me contacter !</p>
+
+        </div>
+
+
+        <div id="home_form" class="col-md-4">
+
+            <fieldset>
+                {{ form_start(formContact) }}
+
+                <legend>Formulaire de contact</legend>
+
+                <div class="form-group">
+                    {{ form_label(formContact.name, 'Votre nom / prénom:', {'label_attr' : {'class' : 'control-label'}}) }}
+                    {{ form_errors(formContact.name) }}
+                    {{ form_widget(formContact.name, {'attr' : {'class' : 'form-control'}}) }}
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(formContact.content, 'Votre message :', {'label_attr' : {'class' : 'control-label'}}) }}
+                    {{ form_errors(formContact.content) }}
+                    {{ form_widget(formContact.content, {'attr' : {'class' : 'form-control'}}) }}
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(formContact.mail, 'Votre adresse mail :', {'label_attr' : {'class' : 'control-label'}}) }}
+                    {{ form_errors(formContact.mail) }}
+                    {{ form_widget(formContact.mail, {'attr' : {'class' : 'form-control'}}) }}
+                </div>
+
+                {{ form_rest(formContact) }}
+
+                <button id="home_btn" class="btn btn-primary" type="submit">Envoyer</button>
+
+                {{ form_end(formContact) }}
+
+            </fieldset>
+
+        </div>
+    </div>
 
 
 {% endblock %}

@@ -1,0 +1,23 @@
+#home_catch_phrase{
+    text-align: center;
+}
+
+#home_catch_phrase > h3{
+    font-weight: bold;
+}
+
+#home_intro{
+    margin-top: 1.6em;
+    padding-top: 2em;
+    text-align: center;
+    font-size: larger;
+}
+
+#home_form{
+    margin-top: 2em;
+}
+
+#home_btn{
+    float: right;
+    font-weight: bold;
+}

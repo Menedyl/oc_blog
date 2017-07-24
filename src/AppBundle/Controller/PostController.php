@@ -21,7 +21,6 @@ class PostController extends AppController
     {
 
 
-
         /** @var PostRepository $repo */
         $repo = $this->em->getEntityManager()->getRepository('AppBundle\Entity\Post');
 
@@ -29,7 +28,7 @@ class PostController extends AppController
 
         $nbPages = ceil(count($postList) / self::NB_POST_PER_PAGE);
 
-        if ($page > $nbPages){
+        if ($page > $nbPages) {
             throw new NotFoundHttpException("La page demandé n'existe pas");
         }
 
@@ -46,7 +45,6 @@ class PostController extends AppController
 
         /** @var Post $post */
         $post = new Post();
-
 
         /** @var Form $formPost */
         $formPost = $this->createForm(PostType::class, $post);
@@ -69,7 +67,9 @@ class PostController extends AppController
             $this->em->getEntityManager()->persist($post);
             $this->em->getEntityManager()->flush();
 
-            return $this->twig->render('Post/add.twig', array('formPost' => $formPost->createView()));
+
+            return $this->redirectToRoute($request, 'post', array('id' => $post->getId()));
+
         }
 
         return $this->twig->render('Post/add.twig', array('formPost' => $formPost->createView()));
@@ -95,14 +95,12 @@ class PostController extends AppController
 
             $post = $formPost->getData();
 
-
             $post->setDateUpdate(new \DateTime());
 
             foreach ($post->getImages() as $image) {
 
                 $image->upload();
             }
-
 
             $this->em->getEntityManager()->persist($post);
             $this->em->getEntityManager()->flush();
@@ -112,11 +110,13 @@ class PostController extends AppController
 
         }
 
-
-        return $this->twig->render('Post/edit.twig', array('formPost' => $formPost->createView()));
-
+        return $this->twig->render('Post/edit.twig', array(
+            'formPost' => $formPost->createView(),
+            'post' => $post
+        ));
 
     }
+
 
     public function postAction($id)
     {

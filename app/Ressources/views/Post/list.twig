@@ -12,21 +12,23 @@
 
         {% for post in postList %}
 
-            {% if lopp.index < 2 %}
-                <div class="col-md-6 post_list_post">
+            {% if loop.index == 1  or loop.index == 3 %} <div class="row"> {% endif %}
 
-                    <a class="post_list_link" href="{{ path('post', {'id' : post.id}) }}">
-                        <h4 class="post_list_title">{{ post.title }}</h4>
+            <div class="col-md-6 post_list_post">
 
-                        <img class="post_list_image" src="{{ img('uploads/' ~ post.images[0].url) }}">
-                    </a>
+                <a class="post_list_link" href="{{ path('post', {'id' : post.id}) }}">
+                    <h4 class="post_list_title">{{ post.title }}</h4>
 
-                    <p class="post_list_update">
-                        Dernière modification : {{ post.dateUpdate | date('d/m/Y à H:i') }}
-                    </p>
+                    <img class="post_list_image" src="{{ img('uploads/' ~ post.images[0].url) }}">
+                </a>
 
-                </div>
-            {% endif %}
+                <p class="post_list_update">
+                    Dernière modification : {{ post.dateUpdate | date('d/m/Y à H:i') }}
+                </p>
+
+            </div>
+
+            {% if loop.index == 2  or loop.index == 4 %} </div> {% endif %}
 
         {% endfor %}
 
@@ -34,7 +36,7 @@
 
     <div class="row">
 
-        <div id="post_list_pagination" class="col-md-offset-5 col-md-2">
+        <div id="post_list_pagination" class="col-md-offset-4 col-md-4">
 
             <ul class="pagination">
                 {% for p in range(1, nbPages) if nbPages != 0 %}
