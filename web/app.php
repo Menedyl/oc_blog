@@ -1,7 +1,6 @@
 <?php
 
 require_once __DIR__ . '/../vendor/autoload.php';
-
 require_once __DIR__ . '/../doctrine.php';
 
 use AppBundle\Framework;
@@ -26,6 +25,5 @@ $argumentResolver = new ArgumentResolver();
 $appBundle = new Framework($matcher, $controllerResolver, $argumentResolver);
 $response = $appBundle->handle($request);
 
-$response->setClientTtl(0);
 $response->send();
 

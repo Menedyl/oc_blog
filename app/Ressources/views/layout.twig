@@ -20,62 +20,60 @@
 <div class="container-fluid">
 
     <div class="row">
-        <div id="body" class="col-md-12">
 
-            <div id="layout_description" class="col-md-2">
-                {% include "description.twig" %}
+        <div id="layout_description" class="col-sm-4 col-md-2 col-lg-2">
+            {% include "description.twig" %}
+        </div>
+
+        <div id="layout_body" class="col-sm-8 col-md-10 col-lg-10">
+
+            <div class="row">
+                <h1 id="layout_title">DEVELOPPEUR D'APPLICATION</h1>
             </div>
 
-            <div class="col-md-10">
+            <div class="row">
 
-                <div class="row">
-                    <h1 id="layout_title">DEVELOPPEUR D'APPLICATION</h1>
+                <div id="layout_menu" class="col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6">
+                    {% include "menu.twig" %}
                 </div>
-
-                <div class="row">
-
-                    <div id="layout_menu" class="col-md-offset-3 col-md-6">
-                        {% include "menu.twig" %}
-                    </div>
-
-                </div>
-
-
-                {% if info %}
-                    {% for message in info %}
-                        <div id="layout_alert" class="alert alert-info col-md-offset-4 col-md-4">
-                            <p>
-                                {{ message }}
-                            </p>
-                        </div>
-                    {% endfor %}
-                {% endif %}
-
-
-                <div class="row">
-
-                    <div class="col-md-12">
-                        {% block body %}
-                        {% endblock %}
-
-                        <div class="row">
-                            <div id="layout_mentionslegales" class="col-md-offset-4 col-md-4">
-                                <a href="{{ path('mentions') }}">Mentions Légales</a>
-                            </div>
-                        </div>
-
-                        {% block scripts %}
-                        {% endblock %}
-                    </div>
-
-                </div>
-
 
             </div>
+
+
+            {% if info %}
+                {% for message in info %}
+                    <div id="layout_alert" class="alert alert-info col-md-offset-4 col-md-4">
+                        <p>
+                            {{ message }}
+                        </p>
+                    </div>
+                {% endfor %}
+            {% endif %}
+
+
+            <div class="row">
+
+                <div class="col-md-12">
+                    {% block body %}
+                    {% endblock %}
+
+                    <div class="row">
+                        <div id="layout_mentionslegales" class="col-md-offset-4 col-md-4">
+                            <a href="{{ path('mentions') }}">Mentions Légales</a>
+                        </div>
+                    </div>
+
+                    {% block scripts %}
+                    {% endblock %}
+                </div>
+
+            </div>
+
 
         </div>
-    </div>
 
+    </div>
 </div>
+
 </body>
 </html>
