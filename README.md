@@ -13,7 +13,7 @@ Ouvrer votre console et placez vous dans le dossier du projet.
 
 Vous aurez besoin du composant "Composer", lancer la commande suivante dans la console : 
 <br/>
-C:\wamp\www> php -r "eval('?>'.file_get_contents('http://getcomposer.org/installer'));"
+php -r "eval('?>'.file_get_contents('http://getcomposer.org/installer'));"
 
 Utiliser la commande "php composer.phar update" pour mettre à jour toutes les dépendances du projet.
 
