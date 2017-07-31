@@ -20,7 +20,9 @@ Configurer le fichier "config.yml" situé dans le dossier "app/config/" pour ren
 base de données ainsi que les données de votre adresse mail.
 
 Créer les tables de la base de données en utilisant les commandes suivantes dans la console:
+<br/>
 php vendor/doctrine/orm/bin/doctrine orm:schema-tool:create
+<br/>
 php vendor/doctrine/orm/bin/doctrine orm:schema-tool:update --force
 
 
