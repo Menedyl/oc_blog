@@ -1,7 +1,3 @@
-#post_form_add {
-    margin: 4em;
-}
-
 #post_form_btn {
     float: right;
     font-size: large;
@@ -15,14 +11,20 @@ div#appbundle_post_images > div {
     border: 0;
 }
 
-#add_image{
+#add_image {
     font-size: small;
     padding: 0.4em;
 
 }
 
-.del_field{
+.del_field {
     margin: 0.4em;
     font-size: x-small;
     padding: 0.2em;
+}
+
+@media (min-width: 361px) {
+    #post_form_add {
+        margin: 4em;
+    }
 }

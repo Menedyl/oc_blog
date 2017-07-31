@@ -35,20 +35,6 @@ class Framework
 
         return new Response(call_user_func_array($controller, $arguments));
 
-        /*
-        try {
-
-
-
-        } catch (ResourceNotFoundException $exception) {
-            return new Response('Not found', 404);
-
-        } catch (\Exception $exception) {
-            return new Response('An error occured', 500);
-        }
-        */
-
-
     }
 
 
